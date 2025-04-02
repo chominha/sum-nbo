@@ -1,6 +1,7 @@
 #include <stddef.h> // for size_t
 #include <stdint.h> // for uint8_t
 #include <stdio.h> // for printf
+#include <netinet/in.h> // for htons, htonl
 
 void dump(void* p, size_t n) {
 	uint8_t* u8 = static_cast<uint8_t*>(p);
@@ -34,8 +35,24 @@ void  write_0x12345678() {
 	printf("32 bit number=0x%x\n", n);
 }
 
+void htons_test() {
+	uint16_t n1;
+	scanf("%hu", &n1);
+	uint16_t n2 = htons(n1);
+	printf("%04x\n", n2);
+}
+
+void htonl_test() {
+	uint32_t n1;
+	scanf("%u", &n1);
+	uint32_t n2 = htonl(n1);
+	printf("%08x\n", n2);
+}
+
 int main() {
 	write_4660();
 	write_0x1234();
 	write_0x12345678();
+	htons_test();
+	htonl_test();
 }
