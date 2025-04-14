@@ -1,12 +1,12 @@
-TARGET=byte-order-test
-CXXFLAGS=-g
+CC = gcc
+CFLAGS = -Wall -O2
+TARGET = sum-nbo
+OBJS = sum-nbo.o
 
 all: $(TARGET)
 
-$(TARGET): main.o
-	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f $(TARGET)
-	rm -f *.o
-
+	rm -f $(TARGET) $(OBJS)
