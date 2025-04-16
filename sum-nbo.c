@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
 
         uint32_t num;  // 파일에서 읽어올 4바이트 정수를 저장할 변수
         // fread 함수로 4바이트를 읽어옴. 성공 시 1 반환
+        // fread(읽은 데이터 저장 메모리 위치, 한 덩어리 크기, 4바이트 덩어리 1개만 읽기, 읽고 있는 파일 포인터)
         size_t read_bytes = fread(&num, sizeof(uint32_t), 1, fp);
         if (read_bytes != 1) {
             // 읽은 바이트 수가 1이 아니면 에러 처리
